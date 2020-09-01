@@ -34,6 +34,13 @@ GIT DIFF
 - git diff: Listado de todas las modificaciones entre el ultimo commit y el momento actual.
 - git diff --staged: Listado de todas las modificaciones que ya se encuentran agregadas.
 
+## Viaje en el tiempo Git
+- git reset --soft #HashDelCommit: Marca los archivos del commit Stage
+- git reset --mixed: Quitados del Stage
+- git reset --hard: Se devuelve al Commit, quita todo lo que que se realizó en el commit.
+- git reflog: muestra todo el histórico de movimientos de commits
+- git reset --hard #Hash del commit: Restaura también commits que estaban perdidos.
+
 ## Creacion de Alias
 
 - git config --global alias.lg "log --oneline --decorate --all --graph" -> el nombre va despues del "alias"
