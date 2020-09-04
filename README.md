@@ -34,6 +34,13 @@ GIT DIFF
 - git diff: Listado de todas las modificaciones entre el ultimo commit y el momento actual.
 - git diff --staged: Listado de todas las modificaciones que ya se encuentran agregadas.
 
+## Creacion de Alias
+
+- git config --global alias.lg "log --oneline --decorate --all --graph" -> el nombre va despues del "alias"
+  - git lg: mismo resultados.
+- git config --global alias.s "status -s -b".
+  - git s: mismo resultado.
+
 ## Viaje en el tiempo Git
 - git reset --soft #HashDelCommit: Marca los archivos del commit Stage
 - git reset --mixed: Quitados del Stage
@@ -41,12 +48,34 @@ GIT DIFF
 - git reflog: muestra todo el histórico de movimientos de commits
 - git reset --hard #Hash del commit: Restaura también commits que estaban perdidos.
 
-## Creacion de Alias
+## Branch
+Son lineas del tiempo de commits
+Merge: Uniones de una rama a otra. 
+  - Fast-forward:Automatico cuando no hay cambio en la rama principal y no hay conflictos para unir las ramas.
+  - Uniones automaticas: Git detecta que la rama principal tuvo un cambio que las otras ramas no tienen, pero al hacer el merge lo une manteniendo los cambios de la línea actual que lleva.
+  - Manual: Hay conflicto entre cambios. Crea el merge commit de forma manual del usuario.
+  
+Fast Forward: La más común, se ejecuta algo sobre la rama y se une
+  - git branch nombre_rama: crea una nueva rama
+  - git branch: muestra todas las ramas e indica sobre cual se está trabajando.
+  - git checkout nombre_rama: se cambia a la rama escogida.
+  - git diff nombre_rama nombre_otra_rama: Muestras las diferencias entre cada rama.
+  - git merge nombre_rama_unir: Sobre la rama master se ejecuta para unir el contenido de la rama creada.
+  - git branch -d nombre_rama: elimina la rama.
+  
+ Merge Automático: Se ejecuta algo sobre la rama pero el master se sigue actualizando
+  - git checkout -b nombre_rama: Crea la rama y se mueve a la rama.
+  - git merge nombre_rama_unir: Sobre la rama master se ejecuta para unir el contenido de la rama creada.
 
-- git config --global alias.lg "log --oneline --decorate --all --graph" -> el nombre va despues del "alias"
-  - git lg: mismo resultados.
-- git config --global alias.s "status -s -b".
-  - git s: mismo resultado.
+Merge Uniones con conflictos: Dos ramas modifican el mismo archivo.
+  - Utilizar extensión de atom para definir qué parte del código va.
+  
+ Tags: Una referencia a un commit específico. Generalmente utilizado para marcar versiones o releases.
+  - git tag nombre_capa: Agregar Tag.
+ 
+ 
+  
+
 
 ## Proceso de Publicación
 - git init
