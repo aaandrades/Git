@@ -47,6 +47,7 @@ GIT DIFF
 - git reset --hard: Se devuelve al Commit, quita todo lo que que se realizó en el commit.
 - git reflog: muestra todo el histórico de movimientos de commits
 - git reset --hard #Hash del commit: Restaura también commits que estaban perdidos.
+- git checkout --nombre_archivo: Revierte los cambios realizados a un archivo antes de agregarlo al stage.
 
 ## Branch
 Son lineas del tiempo de commits
@@ -69,13 +70,25 @@ Fast Forward: La más común, se ejecuta algo sobre la rama y se une
 
 Merge Uniones con conflictos: Dos ramas modifican el mismo archivo.
   - Utilizar extensión de atom para definir qué parte del código va.
-  
  Tags: Una referencia a un commit específico. Generalmente utilizado para marcar versiones o releases.
   - git tag nombre_capa: Agregar Tag.
- 
- 
-  
+  - git tag -a V0.1.0 HasCommit -m "Version Alfa"
 
+## Git Stash
+Caja o Contenedor donde se guardan los cambios temporales para dejarlo en el último commit. Es buena práctica borrar el stash siempre después de usar.
+  - Git stash: Crea un nuevo stash con todo el trabajo actual o es proceso.
+  - Git stash list: Muestra todos los WIP (Work in Progress) que tiene el proyecto.
+  - git stash pop: Sirve para restaurar los archivos del Stash y los elimina.
+
+## Git Rebase
+Cuando sobre la master se realizan cambios que se utilizan en nuestra rama, el git rebase almacena los cambios actuales en un area temporal, corre la linea del tiempo del commit y vuelve a cargar los archivos que trabajamos en el area temporal.
+<img src="https://cms-assets.tutsplus.com/uploads/users/585/posts/23191/image/rebase.png" alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
+Usualmente se utiliza para evitar conflictos con el merge, organiza los commits.
+  - git rebase master: Actualiza respecto a la rama master
+  GIT SQUASH
+  - sobre el master permite unir los commits.
+### Git rebase Actualizando rama
 
 ## Proceso de Publicación
 - git init
