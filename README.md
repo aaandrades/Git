@@ -34,6 +34,13 @@ GIT DIFF
 - git diff: Listado de todas las modificaciones entre el ultimo commit y el momento actual.
 - git diff --staged: Listado de todas las modificaciones que ya se encuentran agregadas.
 
+GIT PULL
+  - git pull -u origin master
+
+GIT FETCH
+  Es utilizado cuando el servidor remoto tiene cambios que el local no tiene.Pero no realiza el merge automaticamente.
+SIEMPRE REALIZAR FETCH O PULL ANTES DEL PUSH PARA MANTENER EL CÓDIGO INTEGRO. 
+
 ## Creacion de Alias
 
 - git config --global alias.lg "log --oneline --decorate --all --graph" -> el nombre va despues del "alias"
@@ -88,9 +95,13 @@ Usualmente se utiliza para evitar conflictos con el merge, organiza los commits.
   - git rebase master: Actualiza respecto a la rama master
   GIT SQUASH
   - sobre el master permite unir los commits.
-### Git rebase Actualizando rama
 
 ## Proceso de Publicación
 - git init
 - git add .
 - git commit -m "mensaje del commit"
+- git remote add origin 'url_repositorio'
+- git remote-v: origenes asociados
+- git push -u origin master: Permite que la proxima vez que se ejecute el comando no sea necesario especificar la rama.
+- git push --tags: Sube todos los tags creados.
+
