@@ -1,107 +1,106 @@
 # Git
 
-## Main Commands
+## Main commands
 
-- git init: Inicia el repositorio local.
-- git add . :Agregar todos los archivos para control de los cambios. Los coloca en el Stage.
+- git init: Starts the local repository.
+- git add. : Add all files to control changes. He places them on the Stage.
 
 GIT STATUS
-- git status: Estado de todos los archivos de la carpeta. Muestra archivos que tienen modificaciones desde el ultimo commit y que no se han agregado al repositorio. Rama en que trabajamos, que archivos se han modificado y cuales estan listos para ser cargados.
-- git status -s -b: Envia un resumen practico de los archivos que estan modificados acompañados de la información de la rama.
+- git status: Status of all files in the folder. Shows files that have been modified since the last commit and that have not been added to the repository. Branch in which we work, which files have been modified and which are ready to be uploaded.
+- git status -s -b: Send a practical summary of the files that are modified accompanied by the branch information.
 
-GIT COMMIT
-- git commit: 'screenshot' del estado del repositorio local.
-  - git commit -m "mensaje del commit".
-- git checkout -- . : Reestablece archivos desde el ultimo commit
-- git commit -am "mensaje": Agrega y genera el commit de una vez.
-- git commit --amend -m "Nuevo mensaje": Corrige un commit.
+GIT COMMITMENT
+- git commit: 'screenshot' of the state of the local repository.
+  - git commit -m "commit message".
+- git checkout -. : Restore files from the last commit
+- git commit -am "message": Add and generate the commit all at once.
+- git commit --amend -m "New message": Fix a commit.
 
 GIT ADD
-- git add *.png: agrega todo los archivos con formato png del directorio actual.
-- git add "*.png": agrega todo los archivos con formato png que estan en el proyecto.
-- git add css/: agrega todos los archivos dentro de la carpeta CSS.
-- gitt add -A: Agrega todos los archivos que no se encontraban agregados.
-- git add <index.html, index.css>: lista de archivos para agregar.
+- git add * .png: add all png files in the current directory.
+- git add "* .png": add all png files that are in the project.
+- git add css /: add all the files inside the CSS folder.
+- gitt add -A: Add all the files that were not added.
+- git add <index.html, index.css>: list of files to add.
 
-GIT RESET
-- git reset .: Elimina todos los archivos que esten en el stage.
+RESTART
+- git reset .: Delete all files that are in the stage.
 
 GIT LOG
-- git log: trazabilidad de todas las modificaciones al proyecto.
-- git log --oneline: Informacion del Log de forma mas corta y precisa.
+- git log: traceability of all modifications to the project.
+- git log --oneline: Log information in a shorter and more precise way.
 
 GIT DIFF
-- git diff: Listado de todas las modificaciones entre el ultimo commit y el momento actual.
-- git diff --staged: Listado de todas las modificaciones que ya se encuentran agregadas.
+- git diff: List of all modifications between the last commit and the current moment.
+- git diff --staged: List of all modifications that are already added.
 
 GIT PULL
   - git pull -u origin master
 
 GIT FETCH
-  Es utilizado cuando el servidor remoto tiene cambios que el local no tiene.Pero no realiza el merge automaticamente.
-SIEMPRE REALIZAR FETCH O PULL ANTES DEL PUSH PARA MANTENER EL CÓDIGO INTEGRO. 
+  It is used when the remote server has changes that the local one does not have.
+ALWAYS PERFORM A FETCH OR PULL BEFORE THE PUSH TO KEEP THE CODE INTEGRITY. 
 
-## Creacion de Alias
+## Alias Creation
 
-- git config --global alias.lg "log --oneline --decorate --all --graph" -> el nombre va despues del "alias"
-  - git lg: mismo resultados.
+- git config --global alias.lg "log --oneline --decorate --all --graph" -> the name comes after the "alias"
+  - git lg: same results.
 - git config --global alias.s "status -s -b".
-  - git s: mismo resultado.
+  - git s: same result.
 
-## Viaje en el tiempo Git
-- git reset --soft #HashDelCommit: Marca los archivos del commit Stage
-- git reset --mixed: Quitados del Stage
-- git reset --hard: Se devuelve al Commit, quita todo lo que que se realizó en el commit.
-- git reflog: muestra todo el histórico de movimientos de commits
-- git reset --hard #Hash del commit: Restaura también commits que estaban perdidos.
-- git checkout --nombre_archivo: Revierte los cambios realizados a un archivo antes de agregarlo al stage.
+## Git time travel
+- git reset --soft #HashDelCommit: Mark commit Stage files
+- git reset --mixed: Removed from the Stage
+- git reset --hard: It is returned to the Commit, it removes everything that was done in the commit.
+- git reflog: shows all the commit movement history
+- git reset --hard #Hash of commit: Also restore commits that were lost.
+- git checkout --filename: Revert changes made to a file before adding it to the stage.
 
 ## Branch
-Son lineas del tiempo de commits
-Merge: Uniones de una rama a otra. 
-  - Fast-forward:Automatico cuando no hay cambio en la rama principal y no hay conflictos para unir las ramas.
-  - Uniones automaticas: Git detecta que la rama principal tuvo un cambio que las otras ramas no tienen, pero al hacer el merge lo une manteniendo los cambios de la línea actual que lleva.
-  - Manual: Hay conflicto entre cambios. Crea el merge commit de forma manual del usuario.
+They are commit timelines
+Merge: Unions from one branch to another.
+  - Fast-forward: Automatic when there is no change in the main branch and there are no conflicts to join the branches.
+  - Automatic joins: Git detects that the main branch had a change that the other branches do not have, but when doing the merge it joins it keeping the changes of the current line that it carries.
+  - Manual: There is conflict between changes. Create the merge commit manually by the user.
   
-Fast Forward: La más común, se ejecuta algo sobre la rama y se une
-  - git branch nombre_rama: crea una nueva rama
-  - git branch: muestra todas las ramas e indica sobre cual se está trabajando.
-  - git checkout nombre_rama: se cambia a la rama escogida.
-  - git diff nombre_rama nombre_otra_rama: Muestras las diferencias entre cada rama.
-  - git merge nombre_rama_unir: Sobre la rama master se ejecuta para unir el contenido de la rama creada.
-  - git branch -d nombre_rama: elimina la rama.
+Fast Forward: The most common, something is executed on the branch and joins
+  - git branch branch_name: create a new branch
+  - git branch: shows all branches and indicates which one is being worked on.
+  - git checkout branch_name: switch to the chosen branch.
+  - git diff branch_name other_branch_name: Shows the differences between each branch.
+  - git merge name_branch_unite: On the master branch, it is executed to merge the content of the created branch.
+  - git branch -d branch_name: remove the branch.
   
- Merge Automático: Se ejecuta algo sobre la rama pero el master se sigue actualizando
-  - git checkout -b nombre_rama: Crea la rama y se mueve a la rama.
-  - git merge nombre_rama_unir: Sobre la rama master se ejecuta para unir el contenido de la rama creada.
+ Automatic Merge: Something is executed on the branch but the master keeps updating
+  - git checkout -b branch_name: Create the branch and move to the branch.
+  - git merge name_branch_unite: On the master branch, it is executed to merge the content of the created branch.
 
-Merge Uniones con conflictos: Dos ramas modifican el mismo archivo.
-  - Utilizar extensión de atom para definir qué parte del código va.
- Tags: Una referencia a un commit específico. Generalmente utilizado para marcar versiones o releases.
-  - git tag nombre_capa: Agregar Tag.
-  - git tag -a V0.1.0 HasCommit -m "Version Alfa"
+Merge Conflicting Joins: Two branches modify the same file.
+  - Use atom extension to define what part of the code goes.
+ Tags: A reference to a specific commit. Generally used to mark versions or releases.
+  - git tag layer_name: Add Tag.
+  - git tag -a V0.1.0 HasCommit -m "Alpha Version" 
 
 ## Git Stash
-Caja o Contenedor donde se guardan los cambios temporales para dejarlo en el último commit. Es buena práctica borrar el stash siempre después de usar.
-  - Git stash: Crea un nuevo stash con todo el trabajo actual o es proceso.
-  - Git stash list: Muestra todos los WIP (Work in Progress) que tiene el proyecto.
-  - git stash pop: Sirve para restaurar los archivos del Stash y los elimina.
+Box or Container where the temporary changes are saved to leave it in the last commit. It is good practice to always clear the stash after use.
+  - Git stash: Create a new stash with all current job or process.
+  - Git stash list: Shows all the WIP (Work in Progress) that the project has.
+  - git stash pop: It is used to restore the files from the Stash and delete them.
 
 ## Git Rebase
-Cuando sobre la master se realizan cambios que se utilizan en nuestra rama, el git rebase almacena los cambios actuales en un area temporal, corre la linea del tiempo del commit y vuelve a cargar los archivos que trabajamos en el area temporal.
-<img src="https://cms-assets.tutsplus.com/uploads/users/585/posts/23191/image/rebase.png" alt="Markdown Monster icon"
-     style="float: left; margin-right: 10px;" />
-Usualmente se utiliza para evitar conflictos con el merge, organiza los commits.
-  - git rebase master: Actualiza respecto a la rama master
+When changes are made to the master that are used in our branch, git rebase stores the current changes in a temporary area, runs the commit timeline and reloads the files that we work in the temporary area.
+<img src = "https://cms-assets.tutsplus.com/uploads/users/585/posts/23191/image/rebase.png" alt = "Markdown Monster icon"
+     style = "float: left; margin-right: 10px;" />
+Usually it is used to avoid conflicts with the merge, organize the commits.
+  - git rebase master: Update with respect to the master branch
   GIT SQUASH
-  - sobre el master permite unir los commits.
+  - on the master allows to join commits.
 
-## Proceso de Publicación
+## Publication Process
 - git init
-- git add .
-- git commit -m "mensaje del commit"
-- git remote add origin 'url_repositorio'
-- git remote-v: origenes asociados
-- git push -u origin master: Permite que la proxima vez que se ejecute el comando no sea necesario especificar la rama.
-- git push --tags: Sube todos los tags creados.
-
+- git add.
+- git commit -m "commit message"
+- git remote add origin 'repository_url'
+- git remote-v: associated sources
+- git push -u origin master: It allows that the next time the command is executed it is not necessary to specify the branch.
+- git push --tags: Upload all created tags. 
